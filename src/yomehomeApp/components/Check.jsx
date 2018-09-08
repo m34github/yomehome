@@ -9,7 +9,6 @@ class Check extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      judged: false,
       photo: this.props.location.state ? this.props.location.state.photo : null
     };
   }
@@ -25,22 +24,20 @@ class Check extends React.Component {
   }
 
   judge() {
-    this.setState({
-      judged: true
-    });
+    this.props.judge(this.state.data);
   }
 
   render() {
     const { classes } = this.props;
 
-    if (this.state.judged) {
+    if (this.props.check.judged) {
       return (
-        <article
-          style={{
-            background: `url(${this.state.data}) center / cover`,
-            height: window.innerHeight,
-            width: window.innerWidth
-          }}
+        <Redirect to={{
+          pathname: '/result',
+          state: {
+            keywords: this.props.check.keywords
+          }
+        }}
         />
       );
     }
@@ -79,7 +76,9 @@ class Check extends React.Component {
 }
 
 Check.propTypes = {
+  check: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  judge: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired
 };
 
