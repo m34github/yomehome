@@ -1,11 +1,10 @@
-// action type
 const LOAD_HOME = 'LOAD_HOME';
 
-// action creator
 const loadHome = () => (dispatch) => {
   setTimeout(() => {
     dispatch({
       type: LOAD_HOME,
+      payload: {},
       meta: {
         isLoaded: true
       }
@@ -13,12 +12,10 @@ const loadHome = () => (dispatch) => {
   }, 1000);
 };
 
-// initial state
 const initialState = {
   isLoaded: false
 };
 
-// reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_HOME: {
