@@ -35,7 +35,7 @@ class Check extends React.Component {
         <Redirect to={{
           pathname: '/result',
           state: {
-            keywords: this.props.check.keywords
+            tweet: this.props.check.tweet
           }
         }}
         />

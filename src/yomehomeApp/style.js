@@ -91,4 +91,22 @@ const loader = {
   }
 };
 
-export { theme, check, common, header, home, loader };
+const result = {
+  article: {
+    paddingBottom: 96
+  },
+  back: {
+    position: 'fixed',
+    bottom: 32,
+    left: 32
+  },
+  card: {
+    padding: 12,
+    paddingBottom: 2
+  },
+  icon: {
+    paddingLeft: 135
+  }
+};
+
+export { theme, check, common, header, home, loader, result };

@@ -10,19 +10,17 @@ const judge = data => (dispatch) => {
   axios({
     method: 'post',
     url: endpoint.upload,
-    headers: {
-      Accept: '*',
-      'Content-Type': 'application/json'
-    },
     data: {
       image: datas
     }
   })
     .then((d) => {
+      console.log(d); // eslint-disable-line
+
       dispatch({
         type: JUDGE,
         payload: {
-          keywords: d.data
+          tweet: d.data
         },
         meta: {
           judged: true
@@ -46,7 +44,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case JUDGE: {
       return Object.assign({}, state, {
-        keywords: action.payload.keywords,
+        tweet: action.payload.tweet,
         judged: action.meta.judged
       });
     }
