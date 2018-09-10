@@ -33,7 +33,7 @@ class Header extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.typography}>
-              FirebaseApp
+              褒めころし
             </Typography>
             <IconButton color="inherit" onClick={() => { this.handleToggle(); }}>
               <Icon>more_vert</Icon>
